@@ -64,3 +64,44 @@
 	margin-top: 8px !important;
 	margin-bottom: 8px !important;
 }
+
+/* css for auth pages */
+
+.top-form{
+	text-align: center;
+}
+
+.button-a a{
+	background-color: #000008;
+	color: #fff;
+	padding: 5px 10px;
+	border-radius: 4px;
+	text-decoration: none;
+}
+
+.button-a{
+	display: inline-block;
+}
+
+.auth-form{
+	width: 300px;
+	margin: auto;
+	border: 1px solid #a8a8a8;
+	border-radius: 5px;
+	padding: 1.5rem;
+}
+
+.auth-form *{
+	margin: 8px 0px;
+	display: block;
+}
+
+.form-button {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: .3rem .5rem;
+}
+
+.form-input { width: 100%; box-sizing: border-box; }
+
+.header{ text-align: center; }

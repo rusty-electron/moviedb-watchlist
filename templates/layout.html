@@ -1,19 +1,43 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title> title page </title>
+		<title> {% block title %} {% endblock %} - moviedb</title>
 		<link rel='stylesheet' href='{{ url_for('static', filename='style.css') }}'>
 	</head>
 <body>
 
 	<div class='container'>
-{% block content %}
+	<div class="top-form">
+	{% if g.user %}
+		<span>user: {{ g.user['username'] }}</span>
+		<span> watchlist </span>
+		<a href="{{ url_for('auth.logout') }}">Log out</a>
+	{% else %}
+		<div class="button-a">
+			<a href="{{ url_for('auth.register') }}">Register</a>
+		</div>
+		<div class="button-a">
+			<a href="{{ url_for('auth.login') }}">Log In</a>
+		</div>
+	{% endif %}
+	</div>
 
-{% endblock %}
+	<div class='header'>
+		{% block header %} {% endblock %}
+	</div>
 
-{% block results %}
+	{% for message in get_flashed_messages() %}
+		<div class="flash">{{ message }}</div>
+	{% endfor %}
 
-{% endblock %}
+	{% block content %}
+
+	{% endblock %}
+
+	{% block results %}
+
+	{% endblock %}
 	</div>
 
 </body>

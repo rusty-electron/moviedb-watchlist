@@ -1,12 +1,14 @@
 {% extends "layout.html" %}
 
+  <h1>{% block title %}search{% endblock %}</h1>
+
 {% block content %}
 
 <div class="form-box">
 	<h1 class='main-title'>enter movie keyword</h1>
 	<div class='form-input'>
 		<form action="/" method="POST">
-			search: <input type="text" name="search" autofocus='autofocus'>
+			search: <input type="text" name="search" required autofocus='autofocus'>
 			<input type="submit">
 		</form>
 	</div>
@@ -45,7 +47,7 @@
 				<span class='genre-span'> {{ genre }} </span>
 				{% endfor %}
 			</div>
-			<div class='movie-year text-m'> {{ item['release_date'] }} </div>
+			<div class='movie-year text-m'>Year: {{ item['release_date'] }} </div>
 		</div>
 	</div>
 {% endfor %}

@@ -2,11 +2,53 @@
 
 {% block content %}
 
-<h1>Fill out this form</h1>
-<form action="/" method="POST">
-	search: <input type="text" name="search">
-	<br/>
-	<input type="submit">
-</form>
+<div class="form-box">
+	<h1 class='main-title'>enter movie keyword</h1>
+	<div class='form-input'>
+		<form action="/" method="POST">
+			search: <input type="text" name="search" autofocus='autofocus'>
+			<input type="submit">
+		</form>
+	</div>
+</div>
 
+{% endblock %}
+
+{% block results %}
+
+<div class="list-box">
+
+{% for item in movie_dict %}
+
+	<div class="movie-item">
+		<div class="poster-img">
+		{% if item['poster_path'] %}
+			<img src='{{ item['poster_path'] }}' width='200'>
+		{% else %}
+			<img src='/static/imgs/not_found.png' width='200'>
+		{% endif %}
+		</div>
+
+		<div class="movie-text">
+			<div class='movie-title text-m'> {{ item['title'] }} </div>
+			<div class='movie-desc text-m'> {{ item['overview'] }} </div>
+			<div class='movie-lang text-m'>
+				<span>Language: </span>
+				<span class="movie-lang-span">
+					{{ item['original_language'] }}
+				</span>
+			</div>
+			<div class='movie-score text-m'> Score: {{ item['vote_average'] }} </div>
+			<!-- <div class='movie-genre text-m'> {{ item['genre_ids'] }} </div> -->
+			<div class='movie-genre text-m'>
+				{% for genre in item['genre_ids'] %}
+				<span class='genre-span'> {{ genre }} </span>
+				{% endfor %}
+			</div>
+			<div class='movie-year text-m'> {{ item['release_date'] }} </div>
+		</div>
+	</div>
+{% endfor %}
+
+</div>
 {% endblock %}

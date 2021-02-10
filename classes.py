@@ -12,8 +12,8 @@ def search_movie(search_string):
 	}
 
 	response = requests.request("GET", url, params=url_dict)
-	out = response.text
-	return json.loads(out)['results']
+	out = json.loads(response.text)
+	return out['results'], out['total_pages']
 
 def format_data(movie_details, gen_dict):
     for item in movie_details:

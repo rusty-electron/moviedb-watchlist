@@ -4,7 +4,7 @@ import json
 def search_movie(search_string):
 	url = "https://api.themoviedb.org/3/search/movie"
 	url_dict = {
-		'api_key':'c642a0681a875a49d18b1733628b6a5a',
+		'api_key':'<insert>',
 		'language':'en-US',
 		'query':search_string,
 		'page':1,
